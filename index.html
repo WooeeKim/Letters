@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Letters</title>
+  </head>
+  <body>
+    <!-- Step 1: 기본 구조 -->
+    <h1>Letters: Naeun Kim</h1>
+    <p>We write from left to right but why?</p>
+    <!-- 출력 영역 -->
+    <div id="output"></div>
+    <!-- Step 2~5: 동작 추가 -->
+    <script>
+      // #output 요소를 찾음
+      const outputEl = document.getElementById("output");
+
+      // (Step 5) 소리 재생 함수
+      function playSound(url) {
+        const audio = new Audio(url);
+        audio.play();
+      }
+
+      // (Step 4) DOM 요소를 만들어 #output에 추가하는 함수
+      function addDomElement(tag, attrs) {
+        const el = document.createElement(tag); // tag로 요소 생성
+        if (attrs) {
+          for (const k in attrs) {
+            if (k === "text") {
+              el.textContent = attrs[k]; // 텍스트 내용
+            } else {
+              el.setAttribute(k, attrs[k]); // 속성 추가
+            }
+          }
+        }
+        outputEl.appendChild(el); // #output에 추가
+        return el;
+      }
+
+      // (Step 2~5) 키 입력 이벤트 리스너
+      document.addEventListener("keydown", function(event) {
+        console.log("Key pressed:", event.key); // 콘솔에 키 출력
+        if (event.key === "Backspace") {
+          // Backspace: 마지막 요소 삭제
+          if (outputEl.lastChild) {
+            outputEl.removeChild(outputEl.lastChild);
+          }
+        } else if (event.key === "d" || event.key === "D") {
+          // d/D: "BARK!" 텍스트 추가
+          addDomElement("span", { text: "BARK!" });
+        } else if (event.key === "c" || event.key === "C") {
+          // c/C: 고양이 이미지 추가
+          addDomElement("img", {
+            src: "https://media2.giphy.com/media/v1.Y2lkPTZjMDliOTUyeTcyNHM4b3Mya3pmczY5MDBldW4zcDE2dGFsYjFvdjBka2RuNGRvdiZlcD12MV9naWZzX3NlYXJjaCZjdT1n/3vcHdyb75qRIA/200w.gif"
+          });
+        } else if (event.key === "v" || event.key === "V") {
+          // v/V: 비디오 추가
+          addDomElement("video", {
+            src: "https://i.imgur.com/Pj87n9Q.mp4",
+            width: "300",
+            height: "300",
+            autoplay: "true",
+            muted: "",
+            controls: ""
+          });
+        } else if (event.key === "s" || event.key === "S") {
+          // s/S: 소리 재생 + 안내 텍스트
+          playSound("https://actions.google.com/sounds/v1/cartoon/cartoon_boing.ogg");
+          addDomElement("span", { text: "(sound played)" });
+        } else {
+          // 그 외: 입력한 키를 화면에 추가
+          addDomElement("span", { text: event.key });
+        }
+      });
+    </script>
+  </body>
+</html>
