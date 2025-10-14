@@ -1,6 +1,6 @@
-# Letters: E Roon Kang
+# Make a Cake with Me! - Naeun Kim
 
-We write from left to right but why?
+Make a Cake with Me!
 
 ---
 
