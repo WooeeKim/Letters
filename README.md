@@ -1,6 +1,6 @@
-# Make a Cake with Me! - Naeun Kim
+# Letters tutorial - Naeun Kim
 
-Make a Cake with Me!
+left to right!!
 
 ---
 
