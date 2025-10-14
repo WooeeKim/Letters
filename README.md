@@ -12,7 +12,7 @@ left to right!!
     <title>Letters</title>
   </head>
   <body>
-    <h1>Letters: E Roon Kang</h1>
+    <h1>Letters: Naeun Kim</h1>
     <p>We write from left to right but why?</p>
   </body>
 </html>
